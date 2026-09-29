@@ -1,0 +1,40 @@
+<?php
+
+namespace Skeletor\Form\InputTypes\Input;
+
+use Skeletor\Form\InputTypes\Base\BaseInputType;
+use Skeletor\Form\InputTypes\Contracts\EmailInputTypeInterface;
+use Skeletor\Form\InputTypes\Validation\EmailValidation;
+use Skeletor\Form\InputTypes\Validation\RegexValidation;
+use Skeletor\Form\InputTypes\Validation\RequiredValidation;
+
+class Email extends BaseInputType implements EmailInputTypeInterface
+{
+    use RequiredValidation;
+    use EmailValidation;
+    use RegexValidation;
+
+    public function __construct(
+        protected string $name,
+        protected mixed $value,
+        protected ?string $label = null,
+        protected ?string $placeholder = null,
+        protected array $classList = [],
+        protected ?string $id = null,
+        protected ?string $tooltip = null,
+        protected bool $readOnly = false
+    )
+    {
+        parent::__construct($name, $label, $classList, $id, $tooltip, $readOnly);
+    }
+
+    public function getPlaceholder(): ?string
+    {
+        return $this->placeholder;
+    }
+
+    public function getValue(): mixed
+    {
+        return $this->value;
+    }
+}

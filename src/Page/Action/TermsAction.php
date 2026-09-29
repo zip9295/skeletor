@@ -1,0 +1,40 @@
+<?php
+namespace Skeletor\Page\Action;
+
+use Skeletor\Core\Config\Config;
+use Psr\Log\LoggerInterface as Logger;
+use Skeletor\Core\Action\Web\Html;
+use Twig\Environment;
+
+class TermsAction extends Html
+{
+    /**
+     * PageAction constructor.
+     * @param Logger $logger
+     * @param Config $config
+     */
+    public function __construct(
+        Logger $logger, Config $config, Environment $template
+    ) {
+        parent::__construct($logger, $config, $template);
+        $this->setGlobalVariable('pageTitle', 'Uslovi');
+    }
+
+    /**
+     * Parses data for provided merchantId
+     *
+     * @param \Psr\Http\Message\ServerRequestInterface $request request
+     * @param \Psr\Http\Message\ResponseInterface $response response
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws \Exception
+     */
+    public function __invoke(
+        \Psr\Http\Message\ServerRequestInterface $request,
+        \Psr\Http\Message\ResponseInterface $response
+    ) {
+        return $this->respond('page/terms');
+    }
+
+
+}

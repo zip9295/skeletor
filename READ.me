@@ -1,0 +1,43 @@
+run tests from tests folder with :
+XDEBUG_MODE=coverage ../vendor/bin/phpunit --coverage-html ../public/coverage
+
+or
+
+../vendor/bin/phpunit --filter=<text>
+
+
+db migrations with doctrine/migrations
+(connection comes from the container, same EntityManager as bin/doctrine - no separate db config):
+
+status / list:
+php bin/doctrine-migrations migrations:status
+php bin/doctrine-migrations migrations:list
+
+create a blank migration:
+php bin/doctrine-migrations migrations:generate
+
+generate one by diffing the ORM mappings against the live schema:
+php bin/doctrine-migrations migrations:diff
+
+run everything pending:
+php bin/doctrine-migrations migrations:migrate
+
+preview the SQL without touching the database:
+php bin/doctrine-migrations migrations:migrate --dry-run
+
+roll back to a specific version:
+php bin/doctrine-migrations migrations:migrate 20260405170003
+
+one-off cutover for a database that was already migrated by Phinx - records the ported
+migrations as executed WITHOUT running them, so they are not applied a second time:
+php bin/doctrine-migrations migrations:sync-metadata-storage
+php bin/doctrine-migrations migrations:version --add --all --no-interaction
+(then the old `migrations_log` table can be dropped)
+
+php bin/doctrine orm:schema-tool:update --force --dump-sql
+
+php bin/doctrine orm:validate-schema
+
+php bin/doctrine orm:clear-cache:metadata
+php bin/doctrine orm:clear-cache:query
+php bin/doctrine orm:clear-cache:result

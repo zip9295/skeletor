@@ -1,0 +1,22 @@
+<?php
+
+return array(
+
+    'baseUrl' => 'http://skeleton.local',
+    'db' => [
+            'write' => [
+                'host' => 'localhost',
+                'name' => 'skeletor',
+                'user' => 'root',
+                'pass' => 'rootpass'
+            ],
+            'read' => [
+                [
+                    'host' => 'localhost',
+                    'name' => 'skeletor',
+                    'user' => 'root',
+                    'pass' => 'rootpass'
+                ]
+            ],
+        ],
+);

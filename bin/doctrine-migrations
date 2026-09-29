@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
+use Doctrine\Migrations\Configuration\Migration\PhpFile;
+use Doctrine\Migrations\DependencyFactory;
+use Doctrine\Migrations\Tools\Console\ConsoleRunner;
+use Doctrine\ORM\EntityManagerInterface;
+
+include(__DIR__ . "/../config/constants.php");
+include(APP_PATH . "/vendor/autoload.php");
+$container = require APP_PATH . '/config/bootstrap.php';
+
+// The EntityManager comes from the container, exactly like bin/doctrine. That is the whole point
+// of the move off Phinx: one connection configuration, defined once in config, instead of a second
+// set of database credentials living in the migration tool's own config file.
+$dependencyFactory = DependencyFactory::fromEntityManager(
+    new PhpFile(DATA_PATH . '/migrations.php'),
+    new ExistingEntityManager($container->get(EntityManagerInterface::class))
+);
+
+ConsoleRunner::run([], $dependencyFactory);

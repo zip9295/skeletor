@@ -1,0 +1,220 @@
+#themeSettingsContainer {
+  order: 2;
+  display: flex;
+  padding: 0 1rem;
+  margin-top: 2rem;
+}
+#themeSettingsContainer #themeSettingsNavigation {
+  background: var(--colorSurface-200);
+  width: 150px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  margin-top: 0.5rem;
+}
+#themeSettingsContainer #themeSettingsNavigation li {
+  cursor: pointer;
+  transition: 0.3s ease all;
+  color: var(--colorSurface-600);
+  border-bottom: 1px solid var(--colorSurface-300);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#themeSettingsContainer #themeSettingsNavigation li:first-of-type {
+  border-top-left-radius: 7px;
+}
+#themeSettingsContainer #themeSettingsNavigation li:last-of-type {
+  border-bottom: none;
+  border-bottom-left-radius: 7px;
+}
+#themeSettingsContainer #themeSettingsNavigation li.active {
+  background: var(--colorSurface-300);
+}
+@media (hover: hover) {
+  #themeSettingsContainer #themeSettingsNavigation li:hover {
+    background: var(--colorSurface-300);
+  }
+}
+#themeSettingsContainer #themeSettingsNavigation li svg {
+  width: 12px;
+  fill: var(--colorSurface-600);
+}
+#themeSettingsContainer #themeSettingsContent {
+  width: calc(100% - 150px);
+  border: 1px solid var(--colorSurface-200);
+  height: 800px;
+  overflow-y: auto;
+  border-radius: 7px;
+  padding: 1rem;
+  position: relative;
+}
+#themeSettingsContainer #themeSettingsContent #settingsContentTop {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid var(--colorSurface-200);
+  padding-bottom: 1rem;
+}
+#themeSettingsContainer #themeSettingsContent #settingsContentTop h2 {
+  color: var(--colorSurface-600);
+}
+#themeSettingsContainer #themeSettingsContent #settingsContentTop .iconContainer {
+  border: 1px solid var(--colorSurface-600);
+  border-radius: 7px;
+  padding: 0.5rem;
+  display: flex;
+}
+#themeSettingsContainer #themeSettingsContent #settingsContentTop .iconContainer svg {
+  width: 14px;
+  fill: var(--colorSurface-600);
+}
+#themeSettingsContainer #themeSettingsContent #settingsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#settingsContainer #chooseNavigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+#settingsContainer #chooseNavigation select {
+  padding: 0.39rem 0.7rem;
+}
+#settingsContainer #chooseNavigation button {
+  height: max-content;
+}
+#settingsContainer #chooseNavigation button.error {
+  display: none;
+}
+#settingsContainer #chooseNavigation button.error.active {
+  display: block;
+}
+#settingsContainer #navigationContent {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--colorOnBorders);
+}
+
+#socialLinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 4rem;
+}
+#socialLinks .socialLink {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#socialLinks .socialLink .top {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid var(--colorOnBorders);
+  padding-bottom: 0.5rem;
+}
+#socialLinks .socialLink .top label {
+  font-size: 14px;
+}
+#socialLinks .socialLink .top svg {
+  width: 14px;
+  fill: var(--colorSurface-600);
+}
+#socialLinks .socialLink.facebook svg {
+  width: 10px;
+}
+#socialLinks .socialLink.youtube svg {
+  width: 18px;
+}
+#socialLinks .socialLink.tumblr svg {
+  width: 10px;
+}
+#socialLinks .socialLinkContainer {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+#socialLinks .socialLinkContainer label {
+  color: var(--colorSurface-600);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#themeColor h2 {
+  color: var(--colorSurface-600);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--colorSurface-200);
+  margin-bottom: 1rem;
+}
+#themeColor .section {
+  margin-bottom: 2rem;
+}
+#themeColor .section .inputsWrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+#themeColor .section .inputsWrapper .inputContainer {
+  min-width: 190px;
+}
+#themeColor .section .inputsWrapper .inputContainer .input[type=color] {
+  width: 100%;
+}
+
+#mainTable #crudTable tbody tr:not(.additionalDataRow):not(.active):has(.inPlaceEditable):hover td:not(.countDataElement):not(.countDataTitle) {
+  background: inherit;
+}
+#mainTable #crudTable tbody tr .inPlaceEditable input, #mainTable #crudTable tbody tr .inPlaceEditable select {
+  width: 100%;
+  border: 1px solid var(--colorSurface-400);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: var(--colorSurface-600);
+  outline: none;
+}
+#mainTable #crudTable tbody tr .inPlaceEditable input:focus, #mainTable #crudTable tbody tr .inPlaceEditable select:focus {
+  border: 1px solid var(--colorPrimary-500);
+  background: var(--colorInfoTransparent);
+  color: var(--colorPrimary-500);
+}
+#mainTable #crudTable tbody tr .inPlaceEditable input {
+  background: transparent;
+}
+#mainTable #crudTable tbody tr .inPlaceEditable select {
+  background: var(--colorSurface-100);
+}
+#mainTable #crudTable tbody tr .inPlaceEditable select option {
+  background: var(--colorSurface-100);
+  color: var(--colorSurface-600);
+}
+
+.flashInput {
+  animation: flashInputAnimation 1s alternate;
+}
+
+.flashInputError {
+  animation: flashInputErrorAnimation 1s alternate;
+}
+
+@keyframes flashInputAnimation {
+  50% {
+    border: 1px solid var(--colorSuccess);
+    background: var(--colorSuccessTransparent);
+    color: var(--colorSuccess);
+  }
+}
+@keyframes flashInputErrorAnimation {
+  50% {
+    border: 1px solid var(--colorError);
+    background: var(--colorErrorTransparent);
+    color: var(--colorError);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
